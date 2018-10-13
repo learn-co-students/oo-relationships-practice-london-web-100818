@@ -11,11 +11,11 @@ class Trip
     @@all << self
   end
 
-  # listing
-    # return listing object for that trip??
-
   # guest
     # return guest object for that trip??
+
+    # listing
+    # return listing object for that trip??
 
   def self.all
     @@all

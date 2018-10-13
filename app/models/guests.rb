@@ -12,7 +12,7 @@ class Guest
     @@all << self
   end
 
-  # listing
+  # listings
     # array of listings that guest has stayed at
 
   # trips
