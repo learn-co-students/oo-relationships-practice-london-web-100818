@@ -10,9 +10,9 @@ natalia = Guest.new("Natalia")
 l1 = Listing.new("Krakow")
 l2 = Listing.new("Amsterdam")
 
-t1 = Trip.new(steven, l1)
-t2 = Trip.new(natalia, l1)
-t3 = Trip.new(steven, l2)
+steven.book_a_trip(l1)
+natalia.book_a_trip(l1)
+steven.book_a_trip(l2)
 
 steven.listings
 # => l1, l2
