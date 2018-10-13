@@ -1,13 +1,12 @@
 class Listing
-  attr_accessor :name, :city
+  attr_accessor :city
 
   @@all = []
 
   # a listing has many trips
   # a listing hsa many guest thru trips
 
-  def initialize(name)
-    @name = name
+  def initialize(city)
     @city = city
     @@all << self
   end

@@ -1,12 +1,13 @@
 class Trip
-  attr_accessor :name
+  attr_accessor :guest, :listing
 
   @@all = []
 
   # a trip belongs to a listing and a guest
 
-  def initialize(name)
-    @name = name
+  def initialize(guest, listing)
+    @guest = guest
+    @listing = listing
     @@all << self
   end
 
