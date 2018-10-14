@@ -8,19 +8,17 @@ class Guest
 
   def initialize(name)
     @name = name
-    @trips = []
     @@all << self
   end
 
-  def book_a_trip(listing)
-    trip = Trip.new(self, listing)
-    @trips << trip
+  def book_a_trip(name, listing)
+    trip = Trip.new(name, self, listing)
   end
 
   # trips
   # array of trips guest has made
   def trips
-    @trips
+    Trip.all.select { |t| t.guest == self }
   end
 
   # listings
@@ -42,8 +40,8 @@ class Guest
   # .pro_traveller
     # array of guests > 1 trip
   def self.pro_traveller
-    Guest.all.map { |g|
-      if trips.count > 1
+    self.all.map { |g|
+      if g.trips.count > 1
         return g
       end
     }
@@ -52,7 +50,7 @@ class Guest
   # .find_all_by_name(name)
     # array of guest == name
   def self.find_all_by_name(name)
-    Guest.all.select { |g| g.name == name }
+    self.all.select { |g| g.name == name }
   end
 
 end
