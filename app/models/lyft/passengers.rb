@@ -12,16 +12,16 @@ class Passenger
     Ride.new(self, driver, distance)
   end
 
-  def drivers
-
+  def rides
+    Ride.all.select { |r| r.passenger == self }
   end
 
-  def rides
-
+  def drivers
+    rides.map { |r| r.driver }
   end
 
   def total_distance
-
+    rides.map { |r| r.distance }.inject(:+)
   end
 
   def self.all
@@ -29,7 +29,7 @@ class Passenger
   end
 
   def self.premium_members
-
+    self.all.select { |p| p.total_distance > 100 }
   end
 
 end

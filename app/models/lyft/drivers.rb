@@ -8,12 +8,16 @@ class Driver
     @@all << self
   end
 
-  def passengers
-
+  def rides
+    Ride.all.select { |r| r.driver == self }
   end
 
-  def rides
+  def passengers
+    rides.map { |r| r.passenger }
+  end
 
+  def total_distance
+    rides.map { |r| r.distance }.inject(:+)
   end
 
   def self.all
@@ -21,7 +25,7 @@ class Driver
   end
 
   def self.mileage_cap(distance)
-
+    self.all.select { |d| d.total_distance > distance }
   end
 
 end

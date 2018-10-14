@@ -23,7 +23,8 @@ class Ride
   end
 
   def self.average_distance
-
+    total_distance = self.all.map { |r| r.distance }.inject(:+)
+    average_distance = total_distance / @@all.count
   end
 
 end
