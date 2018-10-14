@@ -13,10 +13,16 @@ class Trip
 
   # guest
     # return guest object for that trip??
+  def guest
+    @guest
+  end
 
-    # listing
+  # listing
     # return listing object for that trip??
-
+  def listing
+    @listing
+  end
+  
   def self.all
     @@all
   end
