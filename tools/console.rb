@@ -10,9 +10,9 @@ natalia = Guest.new("Natalia")
 l1 = Listing.new("Krakow")
 l2 = Listing.new("Amsterdam")
 
-steven.book_a_trip(l1)
-natalia.book_a_trip(l1)
-steven.book_a_trip(l2)
+steven.book_a_trip("t1", l1)
+natalia.book_a_trip("t2", l1)
+steven.book_a_trip("t3", l2)
 
 steven.listings
 # => l1, l2
@@ -36,9 +36,9 @@ Listing.find_all_by_city("Amsterdam")
 Listing.most_popular
 # => krakow
 
-t1.guest
-# => steven
-t1.listing
-# => l1
+# t1.guest
+# # => steven
+# t1.listing
+# # => l1
 
 Pry.start
