@@ -1,11 +1,17 @@
 class Dessert
-  attr_accessor :name
+  attr_accessor :name, :bakery
 
   @@all = []
 
-  def initialize(name)
+  def initialize(name, bakery)
     @name = name
+    @bakery = bakery
+    @ingredients = []
     @@all << self
+  end
+
+  def add_ingredient(ingredient)
+    @ingredient << ingredient
   end
 
   def ingredients

@@ -8,6 +8,10 @@ class Bakery
     @@all << self
   end
 
+  def create_a_dessert(name)
+    Dessert.new(name, self)
+  end
+
   def ingredients
     # array of ingredients for bakery's desserts
   end
