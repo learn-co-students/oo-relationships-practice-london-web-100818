@@ -148,23 +148,23 @@ class Listing
   end
 end
 
-g1 = Guest.new('Ricky')
-g2 = Guest.new('Dario')
-g3 = Guest.new('Chris')
-g4 = Guest.new('Lola')
+# g1 = Guest.new('Ricky')
+# g2 = Guest.new('Dario')
+# g3 = Guest.new('Chris')
+# g4 = Guest.new('Lola')
 
-l1 = Listing.new('Red House', 'London')
-l2 = Listing.new('Blue House', 'Paris')
-l3 = Listing.new('Green House', 'Hongkong')
-l4 = Listing.new('Black House', 'Paris')
-l5 = Listing.new('Pink House', 'Paris')
+# l1 = Listing.new('Red House', 'London')
+# l2 = Listing.new('Blue House', 'Paris')
+# l3 = Listing.new('Green House', 'Hongkong')
+# l4 = Listing.new('Black House', 'Paris')
+# l5 = Listing.new('Pink House', 'Paris')
 
 
-t1 = Trip.new(g1, l1)
-t2 = Trip.new(g1, l1)
-t3 = Trip.new(g1, l1)
-t4 = Trip.new(g4, l3)
-t5 = Trip.new(g4, l4)
+# t1 = Trip.new(g1, l1)
+# t2 = Trip.new(g1, l1)
+# t3 = Trip.new(g1, l1)
+# t4 = Trip.new(g4, l3)
+# t5 = Trip.new(g4, l4)
 
 
 
