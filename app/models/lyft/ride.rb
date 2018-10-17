@@ -22,6 +22,7 @@ class Ride
     @passenger
   end
 
+
   def driver
     @driver
   end

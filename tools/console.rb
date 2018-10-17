@@ -4,27 +4,26 @@ def reload
   load 'config/environment.rb'
 end
 
+h1 = Host.new('Sally', '07706796145')
+h2 = Host.new('John', '07796847364')
 
-d1 = Driver.new('Dario')
-d2 = Driver.new('Tom')
-d3 = Driver.new('Andrew')
-d4 = Driver.new('Dan')
-d5 = Driver.new('Fernando')
 
-p1 = Passenger.new('Emily')
-p2 = Passenger.new('Ricky')
-p3 = Passenger.new('Lola')
-p4 = Passenger.new('Steve')
-p5 = Passenger.new('Chris')
+l1 = Listing.new('Listing 1', 'New York', h1)
+l2 = Listing.new('Listing 2', 'New York', h2)
 
-r1 = Ride.new(d1, p2, 45)
-r2 = Ride.new(d1, p3, 60)
-r3 = Ride.new(d2, p1, 100)
-r4 = Ride.new(d5, p2, 200)
-r5 = Ride.new(d1, p1, 209)
+g1 = Guest.new('Guest 1')
+g2 = Guest.new('Guest 2')
+g3 = Guest.new('Guest 3')
 
-r5.passenger
 
+
+t1 = Trip.new(l1, g1)
+t2 = Trip.new(l1, g1)
+t3 = Trip.new(l2, g1)
+t4 = Trip.new(l2, g2)
+t4 = Trip.new(l2, g3)
+
+Listing.find_all_by_city('New York')
 
 
 
