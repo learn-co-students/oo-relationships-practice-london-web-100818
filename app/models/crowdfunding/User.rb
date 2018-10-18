@@ -7,18 +7,30 @@ class User
     @@all << self
   end
 
-  def self.highest_pledge
-    ##returns the user who has made the highest pledge##
-    highest_pledge = 0
-    highest_pledger = ""
-    Pledge.all.each { |pledge|
-      if pledge.pledge_amount > highest_pledge
-        highest_pledge += pledge.pledge_amount
-        highest_pledger = pledge.user
-      end
-    }
-    highest_pledger
+  def pledges
+    Pledge.all.select { |p| p.user == self }
   end
+
+  def my_highest_pledge
+    pledges.max_by { |p| p.pledge_amount }
+  end
+
+  def self.highest_pledge
+    self.all.max_by { |u| u.pledges.pledge_amount }
+  end
+
+  # def self.highest_pledge
+  #   ##returns the user who has made the highest pledge##
+  #   highest_pledge = 0
+  #   highest_pledger = ""
+  #   Pledge.all.each { |pledge|
+  #     if pledge.pledge_amount > highest_pledge
+  #       highest_pledge += pledge.pledge_amount
+  #       highest_pledger = pledge.user
+  #     end
+  #   }
+  #   highest_pledger
+  # end
   def self.multi_pledger
     ##returns all users who have pledged to multiple projects##
     pledgers = []
