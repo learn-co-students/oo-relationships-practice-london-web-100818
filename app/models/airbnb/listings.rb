@@ -1,48 +1,42 @@
 class Listing
-  attr_accessor :city
+    attr_accessor :city
 
-  @@all = []
+    @@all = []
 
-  # a listing has many trips
-  # a listing hsa many guest thru trips
+    # a listing has many trips
 
-  def initialize(city)
-    @city = city
-    @@all << self
-  end
+    def initialize(city)
+        @city = city
+        @@all << self
+    end
+    
+    def trips
+        # return array of all trips at that listing
+        Trip.all.select { |t| t.listing == self }
+    end
 
-  # guests
-    # array of guests that have stayed
-  def guests
-    Trip.all.select { |t| t.listing == self }
-  end
+    def guests
+        # return array of all guests at that listing
+        trips.map { |t| t.guest }
+    end
 
-  # trips
-    # array of all trips at that listing
-  def trips
-    Trip.all.select { |t| t.listing == self }
-  end
+    def trip_count
+        # return number of trips at that listing
+        trips.count
+    end
 
-  # trip_count
-    # number of trips at that listing
-  def trip_count
-    trips.count
-  end
+    def self.all
+        @@all
+    end
 
-  def self.all
-    @@all
-  end
+    def self.find_all_by_city(city)
+        # return all listings for that city
+        self.all.select { |l| l.city == city }
+    end
 
-  # .find_all_by_city(city)
-    # array of all listings for city
-  def self.find_all_by_city(city)
-    self.all.select { |l| l.city == city }
-  end
-
-  # .most_popular
-    # find listing with the most trips
-  def self.most_popular
-    self.all.max_by { |l| l.trip_count }
-  end
-
+    def self.most_popular
+        # return listing with most trips
+        most = self.all.max_by { |l| l.trip_count }
+        self.all.select { |l| l.trip_count == most.trip_count }
+    end
 end
