@@ -1,16 +1,16 @@
-require_relative "rides"
-require_relative "drivers"
-require_relative "passengers"
-
 require 'pry'
+require_relative 'passengers'
+require_relative 'rides'
+require_relative 'drivers'
+# PASSENGERS #
+steven = Passenger.new("Steven")
+natalia = Passenger.new("Natalia")
+# DRIVERS #
+mike = Driver.new("Mike")
+denzel = Driver.new("Denzel")
+# RIDES #
+steven.book_a_ride(mike, 75.0)
+steven.book_a_ride(denzel, 60.5)
+natalia.book_a_ride(mike, 35.5)
 
-frank = Driver.new("Frank")
-
-matt = Passenger.new("Matt")
-susan = Passenger.new("Susan")
-
-matt.book_a_ride(frank, 150)
-susan.book_a_ride(frank, 75)
-
-binding.pry
-p 'eof'
+Pry.start
