@@ -1,32 +1,30 @@
 class Dessert
-  attr_accessor :name, :bakery, :ingredients
+    attr_accessor :name, :bakery
 
-  @@all = []
+    @@all = []
 
-  def initialize(name, bakery, *ingredients)
-    @name = name
-    @bakery = bakery # error?!?!
-    @ingredients = ingredients # error?!?!
-    @@all << self
-  end
+    # a dessert belongs to a bakery
+    # a dessert has many ingredients
 
-  def ingredients
-    # array of ingredients for the dessert
-    @ingredients
-  end
+    def initialize(name, bakery)
+        @name = name
+        @bakery = bakery # return bakery of that dessert
+        @@all << self
+    end
 
-  def bakery
-    # return bakery object for the dessert
-    @bakery
-  end
+    def ingredients
+        # return ingredients of that dessert
+        DessertIngredient.all
+            .select { |di| di.dessert == self }
+            .map { |di| di.ingredient }
+    end
 
-  def calories
-    # sum of all calories per ingredient
-    ingredients.map { |i| i.calories }.sum
-  end
+    def calories
+        # return total calories of that dessert
+        ingredients.map { |i| i.calorie }.inject(:+)
+    end
 
-  def self.all
-    @@all
-  end
-
+    def self.all
+        @@all
+    end
 end
