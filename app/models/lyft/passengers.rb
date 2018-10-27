@@ -21,7 +21,7 @@ class Passenger
 
     def drivers
         # return all drivers of that passenger
-        rides.map { |r| r.driver }
+        rides.map { |r| r.driver }.uniq
     end
 
     def total_distance
