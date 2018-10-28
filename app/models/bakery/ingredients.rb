@@ -1,31 +1,34 @@
 class Ingredient
-  attr_accessor :name, :calories
+    attr_accessor :name, :calorie
 
-  @@all = []
+    @@all = []
 
-  def initialize(name, calories)
-    @name = name
-    @calories = calories
-    @@all << self
-  end
+    # an ingredient belongs to many desserts
 
-  def dessert
-    # return dessert object for that ingredient
-    Dessert.all.select { |d| d.ingredients.include?(self) }
-  end
+    def initialize(name, calorie)
+        @name = name
+        @calorie = calorie
+        @@all << self
+    end
 
-  def bakery
-    # return bakery object for that ingredient
-    dessert.bakery
-  end
+    def desserts
+        # return dessert objects for that ingredient
+        DessertIngredient.all
+            .select { |di| di.ingredient == self }
+            .map { |di| di.dessert }
+    end
 
-  def self.all
-    @@all
-  end
+    def bakery
+        # return bakery objects for that ingredient
+        desserts.map { |d| d.bakery }.uniq
+    end
 
-  def self.find_all_by_name(ingredient)
-    # array of all ingredients that include arg
-    self.all.select { |i| i.name.include?(ingredient) }
-  end
+    def self.all
+        @@all
+    end
 
+    def self.find_all_by_name(ingredient)
+        # find all ingredients that include the ingredient in their name
+        self.all.select { |i| i.name.include?(ingredient) }
+    end
 end
