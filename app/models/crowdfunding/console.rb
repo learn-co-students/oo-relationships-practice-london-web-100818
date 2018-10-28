@@ -10,6 +10,7 @@ susana = User.new("Susana")
 ### PROJECTS ###
 space = steven.create_a_project("Space Exploration", 50000)
 red_tent = natalia.create_a_project("Red Tent", 3500)
+necromancer = tim.create_a_project("Conjure the Dead", 500)
 ### PLEDGES ###
 p1 = natalia.back_a_project(space, 30000)
 p2 = tim.back_a_project(space, 15000)
