@@ -1,5 +1,5 @@
 class Project
-    attr_accesor: :name, :funding_goal, :creator
+    attr_accessor :name, :funding_goal, :creator
 
     @@all = []
 

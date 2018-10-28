@@ -1,5 +1,5 @@
 class Pledge
-    attr_reader: :user_id, :project_id, :amount
+    attr_reader :user_id, :project_id, :amount
 
     @@all = []
 
