@@ -1,11 +1,12 @@
 class Project
-    attr_accesor: :name, :funding_goal
+    attr_accesor: :name, :funding_goal, :creator
 
     @@all = []
 
-    def initialize(name, funding_goal)
+    def initialize(name, funding_goal, creator)
         @name = name
         @funding_goal = funding_goal
+        @creator = creator
         @@all << self
     end
 
