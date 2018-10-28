@@ -1,30 +1,17 @@
 class Trip
-  attr_accessor :name, :guest, :listing
+    attr_accessor :guest, :listing
 
-  @@all = []
+    @@all = []
 
-  # a trip belongs to a listing and a guest
+    # a trip belongs to a guest and a listing
 
-  def initialize(name, guest, listing)
-    @guest = guest
-    @listing = listing
-    @@all << self
-  end
+    def initialize(guest, listing)
+        @guest = guest # return guest object for that trip
+        @listing = listing # return lisitng for that trip
+        @@all << self
+    end
 
-  # guest
-    # return guest object for that trip??
-  def guest
-    @guest
-  end
-
-  # listing
-    # return listing object for that trip??
-  def listing
-    @listing
-  end
-
-  def self.all
-    @@all
-  end
-
+    def self.all
+        @@all
+    end
 end
